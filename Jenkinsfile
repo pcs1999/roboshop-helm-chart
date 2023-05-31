@@ -15,10 +15,10 @@ pipeline {
         }
       }
 
-      stage('Helm deploy')
+      stage('Helm deploy') {
         steps {
          sh 'helm upgrade -i  cart . -f APP/values.yml --set-string image.tag=${APP_VERSION}'
         }
-
+      }
    }
 }

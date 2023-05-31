@@ -33,10 +33,9 @@ spec:
           imagePullPolicy: Always
           env:
             - name: ENV
-              value: {{ .Values.ENV}}
+              value: {{ .Values.ENV }}
             - name: COMPONENT
-              value: {{ .Values.COMPONENT}}
-
+              value: {{ .Values.COMPONENT }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:

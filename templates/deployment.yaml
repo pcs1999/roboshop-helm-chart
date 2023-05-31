@@ -29,13 +29,13 @@ spec:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       initContainers:
         - name: parameters-pull
-          image: 261454514620.dkr.ecr.us-east-1.amazonaws.com/parameters-pull:latest
+          image: 261454514620.dkr.ecr.us-east-1.amazonaws.com/parameters-pull
           imagePullPolicy: Always
           env:
             - name: ENV
-              value: {{.Values.ENV}}
+              value: {{ .Values.ENV}}
             - name: COMPONENT
-              value: {{.Values.COMPONENT}}
+              value: {{ .Values.COMPONENT}}
 
       containers:
         - name: {{ .Chart.Name }}

@@ -13,15 +13,15 @@ pipeline {
             git branch: 'main', url: 'https://github.com/pcs1999/${COMPONENT}.git'
           }
 
-//           dir('HELM') {
-//                git branch: 'main', url: 'https://github.com/pcs1999/roboshop-helm-chart.git'
-//           }
+          dir('HELM') {
+               git branch: 'main', url: 'https://github.com/pcs1999/roboshop-helm-chart.git'
+          }
         }
       }
 
       stage('Helm deploy') {
         steps {
-         sh 'helm upgrade -i ${COMPONENT}  -f APP/values.yaml --set-string image.tag="${APP_VERSION}, ENV=prod, COMPONENT=${COMPONENT}"'
+         sh 'helm upgrade -i ${COMPONENT} ./HELM -f APP/values.yaml --set-string image.tag="${APP_VERSION}, ENV=prod, COMPONENT=${COMPONENT}"'
         }
       }
    }

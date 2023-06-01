@@ -13,9 +13,9 @@ pipeline {
             git branch: 'main', url: 'https://github.com/pcs1999/${COMPONENT}.git'
           }
 
-          dir('HELM') {
-               git branch: 'main', url: 'https://github.com/pcs1999/roboshop-helm-chart.git'
-          }
+//           dir('HELM') {
+//                git branch: 'main', url: 'https://github.com/pcs1999/roboshop-helm-chart.git'
+//           }
         }
       }
 

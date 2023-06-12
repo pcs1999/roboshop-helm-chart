@@ -29,6 +29,7 @@ spec:
       containers:
         - name: schema
           image: 261454514620.dkr.ecr.us-east-1.amazonaws.com/schema
+          imagePullPolicy: Always
           env:
             - name: SCHEMA_TYPE
               values: {{ .Values.schema.schema_type }}

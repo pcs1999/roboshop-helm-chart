@@ -33,7 +33,7 @@ spec:
             - name: SCHEMA_TYPE
               values: {{ .Values.schema.schema_type }}
             - name: COMPONENT
-              values: {{ .Value.COMPONENT }}
+              values: {{ .Values.COMPONENT }}
           volumeMounts:
             - name: parameter-store
               mountPath: /parameter-store

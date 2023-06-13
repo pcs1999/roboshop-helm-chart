@@ -33,8 +33,8 @@ spec:
           image: 261454514620.dkr.ecr.us-east-1.amazonaws.com/parameters-pull
           imagePullPolicy: Always
           volumeMounts:
-            - mountPath: /parameter-store
-              name: parameter-store
+          - mountPath: /parameter-store
+            name: parameter-store
           env:
             - name: ENV
               value: "{{ .Values.ENV }}"
@@ -46,7 +46,7 @@ spec:
           emptyDir:
             sizeLimit: 5Mi
       containers:
-        - name: {{ .Chart.Name }}
+        - name: "{{ .Values.COMPONENT }}"
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"

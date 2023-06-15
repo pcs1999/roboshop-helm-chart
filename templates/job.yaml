@@ -33,9 +33,9 @@ spec:
           imagePullPolicy: Always
           env:
             - name: SCHEMA_TYPE
-              values: {{ .Values.schema.schema_type }}
+              value: {{ .Values.schema.schema_type }}
             - name: COMPONENT
-              values: {{ .Values.COMPONENT }}
+              value: {{ .Values.COMPONENT }}
           volumeMounts:
           - mountPath: /parameter-store
             name: parameter-store

@@ -21,7 +21,7 @@ pipeline {
 
       stage('Helm deploy') {
         steps {
-         sh 'helm upgrade --namespace prod -i ${COMPONENT} ./HELM -f APP/values.yaml  --set-string image.tag="${APP_VERSION},ENV=prod,COMPONENT=${COMPONENT}"'
+         sh 'helm upgrade  --create-namespace production -i ${COMPONENT} ./HELM -f APP/values.yaml --namespace production --set-string image.tag="${APP_VERSION},ENV=prod,COMPONENT=${COMPONENT}"'
         }
       }
    }
